@@ -105,7 +105,7 @@ public class SlackNotificationConfig {
 				for(Element eState : statesList)
 				{
 					try {
-						states.setEnabled(BuildStateEnum.findBuildState(eState.getAttributeValue("type")), 
+						states.setEnabled(findBuildState(eState.getAttributeValue("type")),
 										  eState.getAttribute(ENABLED).getBooleanValue());
 					} catch (DataConversionException e1) {e1.printStackTrace();}
 				}
@@ -383,7 +383,7 @@ public class SlackNotificationConfig {
 			return "None";
 		} else {
 			String enabledStates = "";
-			if (states.enabled(BuildStateEnum.BUILD_STARTED)){
+			if (states.enabled(BUILD_STARTED)){
 				enabledStates += ", Build Started";
 			}
 //			if (BuildState.enabled(BuildState.BUILD_FINISHED,this.statemask)){
@@ -392,24 +392,24 @@ public class SlackNotificationConfig {
 //			if (BuildState.enabled(BuildState.BUILD_CHANGED_STATUS,this.statemask)){
 //				enabledStates += ", Build Changed Status";
 //			}
-			if (states.enabled(BuildStateEnum.BUILD_INTERRUPTED)){
+			if (states.enabled(BUILD_INTERRUPTED)){
 				enabledStates += ", Build Interrupted";
 			}
-			if (states.enabled(BuildStateEnum.BEFORE_BUILD_FINISHED)){
+			if (states.enabled(BEFORE_BUILD_FINISHED)){
 				enabledStates += ", Build Almost Completed";
 			}
-			if (states.enabled(BuildStateEnum.RESPONSIBILITY_CHANGED)){
+			if (states.enabled(RESPONSIBILITY_CHANGED)){
 				enabledStates += ", Build Responsibility Changed";
 			}
-			if (states.enabled(BuildStateEnum.BUILD_FAILED)){
-				if (states.enabled(BuildStateEnum.BUILD_BROKEN)){
+			if (states.enabled(BUILD_FAILED)){
+				if (states.enabled(BUILD_BROKEN)){
 					enabledStates += ", Build Broken";
 				} else {
 					enabledStates += ", Build Failed";
 				}
 			}
-			if (states.enabled(BuildStateEnum.BUILD_SUCCESSFUL)){
-				if (states.enabled(BuildStateEnum.BUILD_FIXED)){
+			if (states.enabled(BUILD_SUCCESSFUL)){
+				if (states.enabled(BUILD_FIXED)){
 					enabledStates += ", Build Fixed";
 				} else {
 					enabledStates += ", Build Successful";

@@ -6,7 +6,6 @@ import jetbrains.buildServer.serverSide.SBuildServer;
 import jetbrains.buildServer.serverSide.ServerPaths;
 import jetbrains.buildServer.web.openapi.PluginDescriptor;
 import jetbrains.buildServer.web.openapi.WebControllerManager;
-import org.junit.Ignore;
 import org.junit.Test;
 import slacknotifications.SlackNotification;
 import slacknotifications.teamcity.payload.SlackNotificationPayloadManager;
